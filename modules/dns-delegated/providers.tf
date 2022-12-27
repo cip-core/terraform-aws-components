@@ -33,7 +33,6 @@ module "iam_roles" {
   region = var.region
   tfstate_bucket_environment_name = var.tfstate_bucket_environment_name
   context     = module.this.context
-  tfstate_account_id = var.tfstate_account_id
 }
 
 variable "import_profile_name" {
