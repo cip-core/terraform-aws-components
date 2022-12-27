@@ -28,8 +28,12 @@ provider "aws" {
 }
 
 module "iam_roles" {
-  source  = "../account-map/modules/iam-roles"
-  context = module.this.context
+  source = "../cip-central-account/modules/iam-roles"
+  stage  = var.stage
+  region = var.region
+  tfstate_bucket_environment_name = var.tfstate_bucket_environment_name
+  context     = module.this.context
+  tfstate_account_id = var.tfstate_account_id
 }
 
 variable "import_profile_name" {
